@@ -11,7 +11,7 @@ const Footer = () => {
                 {/* Logo and Name */}
                 <div>
                     <div className="flex items-center space-x-2">
-                            <Image src="/logo/logo1.svg" alt="Logo" width={20} height={20} />
+                        <Image src="/logo/logo1.svg" alt="Logo" width={20} height={20} />
                         <h2 className="text-xl font-semibold">Educare</h2>
                     </div>
                 </div>
