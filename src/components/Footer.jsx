@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
 
                 {/* Nav links */}
-                <div className="flex w-full gap-30 ml-52">
+                <div className="flex w-full gap-30 ml-52 justify-between">
                     <div>
                         <h3 className="text-white font-semibold text-[20px] mb-3">Navigation</h3>
                         <ul className="space-y-2 text-[16px]">
