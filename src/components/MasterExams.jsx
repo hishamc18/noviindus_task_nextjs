@@ -8,27 +8,27 @@ const exams = [
     {
         title: "IELTS Preparation",
         description: "Focus on all four sections: Listening, Reading, Writing, and Speaking.",
-        image: "/Exam/exm1.png",
+        image: "/exam/exm1.png",
     },
     {
         title: "TOEFL Mastery",
         description: "Comprehensive coverage of Reading, Listening, Speaking, and Writing sections.",
-        image: "/Exam/exm2.png",
+        image: "/exam/exm2.png",
     },
     {
         title: "PTE Academic Course",
         description: "Time-saving strategies and practice tests with instant feedback.",
-        image: "/Exam/exm3.png",
+        image: "/exam/exm3.png",
     },
     {
         title: "Cambridge English (CAE)",
         description: "Preparation for high-level English skills in Listening, Speaking, Reading, and Writing.",
-        image: "/Exam/exm4.png",
+        image: "/exam/exm4.png",
     },
     {
         title: "Cambridge English (CAE)",
         description: "Preparation for high-level English skills in Listening, Speaking, Reading, and Writing.",
-        image: "/Exam/exm4.png",
+        image: "/exam/exm4.png",
     },
 ];
 

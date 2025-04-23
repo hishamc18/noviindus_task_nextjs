@@ -11,7 +11,7 @@ const testimonials = [
         text:
             "Best decision for English tutoring! Educare improved our daughter's skills and instilled confidence. Recent high scores speak volumes. Thank you, Educare!",
         stars: 5,
-        image: "/review/rev1.png",
+        image: "/Review/rev1.png",
     },
     {
         name: "Ahmed K",
@@ -19,7 +19,7 @@ const testimonials = [
         text:
             "Educare’s commitment to 1-on-1 learning transformed our son's understanding of science. Recent top scores prove Educare delivers results. Grateful for the positive impact!",
         stars: 4,
-        image: "/review/rev2.png",
+        image: "/Review/rev2.png",
     },
     {
         name: "Sarah H",
@@ -27,7 +27,7 @@ const testimonials = [
         text:
             "Best decision for English tutoring! Educare improved our daughter's skills and instilled confidence. Recent high scores speak volumes. Thank you, Educare!",
         stars: 5,
-        image: "/review/rev1.png",
+        image: "/Review/rev1.png",
     },
     {
         name: "Sarah H",
@@ -35,7 +35,7 @@ const testimonials = [
         text:
             "Best decision for English tutoring! Educare improved our daughter's skills and instilled confidence. Recent high scores speak volumes. Thank you, Educare!",
         stars: 4,
-        image: "/review/rev1.png",
+        image: "/Review/rev1.png",
     },
     {
         name: "Sarah H",
@@ -43,7 +43,7 @@ const testimonials = [
         text:
             "Best decision for English tutoring! Educare improved our daughter's skills and instilled confidence. Recent high scores speak volumes. Thank you, Educare!",
         stars: 5,
-        image: "/review/rev1.png",
+        image: "/Review/rev1.png",
     },
 ];
 
@@ -57,7 +57,7 @@ const TestimonialCard = ({ testimonial }) => (
             />
         </div>
         <div className="absolute -top-4 right-6">
-            <Image src="/review/quoteIcon.svg" alt="Educare Logo" width={25} height={25} />
+            <Image src="/Review/quoteIcon.svg" alt="Educare Logo" width={25} height={25} />
         </div>
         <div className="pt-10 text-gray-800 text-[14px] leading-relaxed">“{testimonial.text}”</div>
         <div className="flex justify-between">

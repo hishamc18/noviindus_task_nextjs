@@ -31,7 +31,7 @@ const TextSlider = () => {
                     transition={{ duration: 0.6 }}
                     className="text-[24px] md:text-[50px] font-Bricolage mb-4 text-center text-[#7c253e]"
                 >
-                    <div className="flex flex-col leading-tight">
+                    <div className="flex flex-col leading-tight min-h-[120px] justify-center items-center text-center">
                         <span className="font-extrabold">{texts[activeIndex].highlight}</span>
                         {texts[activeIndex].normal}
                     </div>
