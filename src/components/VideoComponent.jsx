@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const VideoComponent = () => {
     return (
-        <section className="bg-white py-14 px-4 md:px-8 flex flex-col justify-center items-center">
+        <section className="bg-white py-14 px-4 flex flex-col justify-center items-center">
             <h2 className="text-center text-2xl md:text-[36px] font-Bricolage text-[#655945] mb-8">
                 Learn More About <span className="font-semibold">Our Space</span>
             </h2>

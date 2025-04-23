@@ -5,7 +5,7 @@ const DemoModal = ({ isOpen, onClose }) => {
 
     return (
         <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50">
-            <div className="bg-[#fefaf6] rounded-2xl p-8 w-full max-w-md relative shadow-lg">
+            <div className="bg-[#fefaf6] rounded-2xl p-8 w-full max-w-md relative shadow-lg text-black">
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 text-[30px] text-black"

@@ -31,7 +31,7 @@ const page = () => {
             <ReviewSlider />
             <FAQSection />
             <BlogPosts />
-            <Footer />
+            <Footer /> 
         </div>
     );
 };

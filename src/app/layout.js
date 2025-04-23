@@ -30,10 +30,10 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/logo/logo1.svg" />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <div className="fixed top-0 left-0 w-full z-50">
+                <div className="fixed top-0 w-full z-50">
                     <Navbar />
                 </div>
-                <main className="pt-[75px]">
+                <main className="pt-[60px] bg-white">
                     {children}
                 </main>
                 <WhatsAppButton />

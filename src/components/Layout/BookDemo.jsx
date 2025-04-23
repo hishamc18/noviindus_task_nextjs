@@ -10,7 +10,7 @@ export default function BookDemoButton() {
         <>
             <a
                 onClick={() => setOpen(true)}
-                className="fixed mt-20 top-1/2 right-3 -translate-y-1/2 rotate-90 origin-right bg-[#9e1a4e] text-[14px] text-white px-4 py-2 rounded-md shadow-lg z-50 cursor-pointer transition"
+                className="fixed mt-20 top-1/2 right-3 -translate-y-1/2 rotate-90 origin-right bg-BgColor hover:bg-FeatBg hover:text-BgColor text-[14px] text-white px-4 py-2 rounded-md shadow-lg z-50 cursor-pointer transition"
             >
                 Book a Free Demo Class
             </a>

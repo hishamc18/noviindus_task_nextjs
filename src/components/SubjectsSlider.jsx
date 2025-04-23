@@ -1,8 +1,10 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import SlantedButton from "./Button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
 const subjects = [
     { title: "Maths", image: "/Subjects/maths.svg" },
@@ -16,67 +18,110 @@ const subjects = [
 ];
 
 const SubjectsSlider = () => {
-    const scrollRef = useRef(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-    const scroll = (direction) => {
-        if (!scrollRef.current) return;
+    const [sliderRef, instanceRef] = useKeenSlider({
+        loop: false,
+        mode: "snap",
+        slides: {
+            perView: 2,
+            spacing: 16,
+        },
+        breakpoints: {
+            "(min-width: 640px)": {
+                slides: {
+                    perView: 3,
+                    spacing: 16,
+                },
+            },
+            "(min-width: 768px)": {
+                slides: {
+                    perView: 4,
+                    spacing: 20,
+                },
+            },
+            "(min-width: 1024px)": {
+                slides: {
+                    perView: 6,
+                    spacing: 24,
+                },
+            },
+        },
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel);
+        },
+    });
 
-        const scrollAmount = scrollRef.current.offsetWidth / 2;
-        scrollRef.current.scrollBy({
-            left: direction === "left" ? -scrollAmount : scrollAmount,
-            behavior: "smooth",
-        });
+    const scroll = (dir) => {
+        if (!instanceRef.current) return;
+        dir === "left" ? instanceRef.current.prev() : instanceRef.current.next();
     };
 
     return (
-        <section className="bg-[#F9F7F4] py-12 px-4 md:px-32 relative">
+        <section className="bg-[#F9F7F4] py-12 px-4 md:px-28 relative">
             {/* Header */}
-            <div className="flex items-center justify-between mb-14">
-                <div className="flex-1 text-center">
-                    <h2 className="text-[28px] ml-36 md:text-[32px] font-Bricolage text-[#49402f]">
-                        Subjects We <span className="font-semibold">Teach</span>
+            <div className="mb-8 relative flex items-center justify-between md:justify-end">
+                {/* Heading */}
+                <div className="text-left w-full md:absolute md:inset-x-0 md:text-center">
+                    <h2 className="text-[22px] md:text-[36px] font-Bricolage font-medium text-[#655945] leading-tight">
+                        Subjects we <span className="font-bold">Teach</span>
                     </h2>
                 </div>
 
-                {/* Button on Right */}
-                <div className="ml-auto">
-                    <SlantedButton text="View All" />
+                {/* Button */}
+                <div className="shrink-0 ml-4 md:ml-auto md:mt-0">
+                    <SlantedButton text="View All" className="scale-75" />
                 </div>
             </div>
 
-            {/* Arrow buttons */}
-            <button onClick={() => scroll("left")} className="absolute left-9 top-1/2 -translate-y-1 z-10">
-                <ChevronLeft className="text-BgColor" size={60} />
+            {/* Arrows */}
+            <button
+                onClick={() => scroll("left")}
+                className="absolute left-6 top-1/2 mt-10 not-only-of-type:-translate-y-1/2 z-10 hidden md:block"
+            >
+                <ChevronLeft className="text-BgColor/30" size={70} strokeWidth={1} />
             </button>
-            <button onClick={() => scroll("right")} className="absolute right-7 top-1/2 -translate-y-1 z-10">
-                <ChevronRight className="text-BgColor" size={60} />
+            <button
+                onClick={() => scroll("right")}
+                className="absolute right-6 top-1/2 mt-10 -translate-y-1/2 z-10 hidden md:block"
+            >
+                <ChevronRight className="text-BgColor" size={70} strokeWidth={1} />
             </button>
 
-            {/* Scrollable row */}
-            <div ref={scrollRef} className="flex overflow-x-auto gap-4 scroll-smooth no-scrollbar px-2">
+            {/* Slider */}
+            <div ref={sliderRef} className="keen-slider">
                 {subjects.map((subject, index) => (
                     <div
                         key={index}
-                        className="flex-shrink-0 bg-[#FFF3E1] rounded-md overflow-hidden border border-[#f5e5d5] p-2 w-56 flex flex-col items-center shadow-sm"
+                        className="keen-slider__slide bg-[#FFF3E1] rounded-md border border-[#f5e5d5] p-2 shadow-sm flex flex-col items-center w-full"
                     >
-                        <div className="rounded-md w-full h-28 mb-2">
+                        <div className="w-full h-28 mb-2 flex justify-center items-center">
                             <Image
                                 src={subject.image}
                                 alt={subject.title}
                                 width={220}
                                 height={200}
-                                className="object-contain mx-auto"
+                                className="object-contain"
                             />
                         </div>
                         <h3 className="text-center text-BgColor font-medium">{subject.title}</h3>
                     </div>
                 ))}
             </div>
+
+            {/* Dots */}
             <div className="flex justify-center items-center gap-2 mt-8">
-                    <span className="w-2 h-2 rounded-full bg-BgColor block"></span>
-                    <span className="w-2 h-2 rounded-full bg-BgColor/30 block"></span>
-                    <span className="w-2 h-2 rounded-full bg-BgColor/30 block"></span>
-                </div>
+                {Array.from({
+                    length: Math.ceil(subjects.length / (currentSlide >= 6 ? 6 : currentSlide >= 4 ? 4 : 2)),
+                }).map((_, idx) => (
+                    <span
+                        key={idx}
+                        className={`w-2 h-2 rounded-full block transition-all duration-300 ${
+                            currentSlide === idx ? "bg-BgColor" : "bg-BgColor/30"
+                        }`}
+                    />
+                ))}
+            </div>
         </section>
     );
 };
