@@ -1,3 +1,3 @@
 Live: https://educare-phi.vercel.app/
 
-video: https://drive.google.com/file/d/1TxNHkbAEgzJXDfMFO2-tCsZ-zNGh2u80/view?usp=drivesdk
+video: https://drive.google.com/drive/folders/1Ttt1EfY4YNBIqOOxmaclDhRmoAlZRI7P?usp=sharing
